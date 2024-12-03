@@ -1,0 +1,202 @@
+# Your First CL Program
+
+
+Writing, compiling, and running your first CL program.
+
+The program will be a simple ECHO program. It receives input and echos it back to the user.
+
+
+## CL Source Physical File
+
+To start, enter the command ```WRKOBJPDM YOURLIB```
+
+In order to start writing CL programs, you need to make sure you have a CL source physical file (QCLLESRC).
+In the previous chapter a CL source physical file was created while learning about SEU.
+If you don't have it, please revisit that section.
+
+
+## CL Source Member
+
+Enter the command ```WRKMBRPDM YOURLIB/QCLLESRC```.
+
+
+To create a new CL source member press **F6**
+and populate the prompt as shown.
+
+
+<figure align="center">
+	<img src="./core/cl/_assets/cl-01.PNG" alt="create member" />
+</figure>
+
+
+* The **Source member** field is the name of the source member.
+* The **Source type** field is what our source member will be compiled as.
+* The **Text 'description'** field does nothing to functionality.
+
+
+Press **ENTER** and you are brought to SEU.
+
+
+## Your First Program
+
+At the top of each program, try to put a sentence summary of what it does.
+Something like that
+```php
+/* Prompt for user input and echo it back as a message */
+```
+
+<br>
+
+Next, create the CL program shell
+```php
+/* Prompt for user input and echo it back as a message */  
+PGM                                               
+                                    
+ENDPGM
+```
+
+<br>
+
+Within our program we need to store user input, so a CHAR type variable needs to be declared. 
+Any length will do so I set it to 64 characters long.
+```php                                                               
+  DCL VAR(&in) TYPE(*CHAR) LEN(64)                                        
+```
+
+<br>
+
+To prompt for user input, we send a message to the user with a special message type of ```*INQ``` (inquiry).
+This allows us to store the message reply in our variable specified by ```MSGRPY(&in)```.
+```php
+SNDUSRMSG MSG('Input Something') +
+    MSGTYPE(*INQ) MSGRPY(&in)      
+```
+
+<br>
+
+and finally, we output the input back to the user as another message
+```php                                 
+SNDUSRMSG MSG(&in)
+```
+
+<br>
+
+## Complete Source
+Also found at https://github.com/UrbinCedric/IBMi-Book/blob/master/QCLLESRC/ECHO.CLP
+
+```php
+/* QCLLESRC/ECHO */
+
+/* Prompt for user input and echo it back as a message */
+PGM                                 
+                                    
+  DCL VAR(&in) TYPE(*CHAR) LEN(64)  
+                                    
+  SNDUSRMSG MSG('Input Something') +
+     MSGTYPE(*INQ) MSGRPY(&in)      
+                                    
+  SNDUSRMSG MSG(&in)                
+                                    
+ENDPGM                              
+```
+
+## Compile
+Now that the source is entered, press **F3** to save the source member.
+Now back in PDM, take an option **14** on ```ECHO``` to compile the source member to a progam object.
+
+The compile job will be submitted to Batch and a response message will come back
+saying the compilation was successful.
+
+If the compilation failed, double check what was entered and/or scroll down to the section **Compile Errors and WRKSPLF**
+
+<figure align="center">
+	<img src="./core/cl/_assets/cl-02.PNG" alt="compile" />
+</figure>
+
+
+## Program Object
+After compiling the source member, a program object is created.
+Execute the command ```WRKOBJPDM YOURLIB``` to view all objects in your library.
+As you can see, there is now an object named **ECHO** with the type of **\*PGM** and
+attribute of **CLLE**. This is a totally different entity from our source member with the same name.
+
+<figure align="center">
+	<img src="./core/cl/_assets/cl-09.PNG" alt="pgm" />
+</figure>
+
+<br>
+
+Return back to working with members with ```WRKMBRPDM YOURLIB/QCLLESRC```
+
+
+## Running
+Now that the source member has been compiled to an object. It can be called.
+Execute ```CALL YOURLIB/ECHO```
+
+Ignoring the "Job ..." messages, you should see the text **Input Something**.
+
+In the ```Reply . . .``` field, Enter some text and press **ENTER**.
+Here, we are replying to a program message.
+
+<figure align="center">
+	<img src="./core/cl/_assets/cl-03.PNG" alt="run" />
+</figure>
+
+<br>
+
+After pressing enter, the screen pops up with the entered reply.
+
+<figure align="center">
+	<img src="./core/cl/_assets/cl-04.PNG" alt="run" />
+</figure>
+
+
+## Compile Errors and WRKSPLF
+Now I will show the basics of what to do when a compile job fails.
+<figure align="center">
+	<img src="./core/cl/_assets/cl-05.PNG" alt="err" />
+</figure>
+
+
+For this example, I changed a line in ```ECHO``` to read
+```php
+/* &in2 does not exist! It will not compile :( */
+SNDUSRMSG MSG('Input Something') +
+   MSGTYPE(*INQ) MSGRPY(&in2)     
+```
+
+After receiving the message that the compile job ended abnormally,
+we have to figure out why.
+
+The ```WRKSPLF``` (Work with Spooled Files) command allows you to view
+spooled files generated by jobs.
+Execute the command ```WRKSPLF YOURUSER```.
+<figure align="center">
+	<img src="./core/cl/_assets/cl-06.PNG" alt="wrksplf" />
+</figure>
+
+<br>
+
+Now scroll to the bottom of the file list and you should see 2 spooled files for our last failed job.
+One titled just ```ECHO``` and one title ```QPJOBLOG```.
+Take an option **5** on the ```ECHO``` spooled file.
+Now you have access to a bunch of information on the compile job.
+<figure align="center">
+	<img src="./core/cl/_assets/cl-07.PNG" alt="wrksplf" />
+</figure>
+
+<br>
+
+Scroll down and you will eventually stumble across an error message.
+In my case, this was an error with ID ```CPD0727```.
+The error messages I've seen usually seem to be pretty intuitive.
+
+<figure align="center">
+	<img src="./core/cl/_assets/cl-08.PNG" alt="wrksplf" />
+</figure>
+
+<br>
+
+Errors definitely aren't always that easy to spot/fix, but this was just a good example
+for learning the basics of compiling and the ```WRKSPLF``` command.
+
