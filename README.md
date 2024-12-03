@@ -1,6 +1,6 @@
 # Learning IBM i
 
-<p>This documentation is mainly used a personal documentation but can be used by curious developers to start learning how to program on IBM i.</p>
+<p>This documentation is mainly used as a personal documentation but can be used by curious developers to start learning how to program on the IBM i ecosystem.</p>
 
 <br>
 
