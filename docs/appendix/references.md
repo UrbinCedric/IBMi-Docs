@@ -2,6 +2,7 @@
 
 
 Big list of references that are used.
+!This documentation is mainly a copy from the awesome work of Barrett Otte - https://github.com/barrettotte!
 
 
 ## Books
