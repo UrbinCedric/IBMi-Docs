@@ -82,7 +82,7 @@ SNDUSRMSG MSG(&in)
 <br>
 
 ## Complete Source
-Also found at https://github.com/UrbinCedric/IBMi-Book/blob/master/QCLLESRC/ECHO.CLP
+Also found at https://github.com/UrbinCedric/IBMi-Docs/blob/master/QCLLESRC/ECHO.CLP
 
 ```php
 /* QCLLESRC/ECHO */
