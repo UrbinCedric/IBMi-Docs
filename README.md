@@ -9,3 +9,6 @@
 	<figcaption align="center">
 	</figcaption>
 </figure>
+
+<p>!This documentation is mainly a copy from the awesome work of Barrett Otte - https://github.com/barrettotte!</p>
+<p>The version of Barett Otte was the base of this documentation, and may be overwritten & extended to fit the needs of this documentation.</p>
