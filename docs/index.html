@@ -12,19 +12,7 @@
   </head>
   <body>
     <div id="app">Please wait...</div>
-    <script>
-      window.$docsify = {
-        name: '',
-        repo: 'https://github.com/UrbinCedric/IBMi-Docs',
-        loadSidebar: true,
-        alias: {
-          '/.*/_sidebar.md': '/_sidebar.md'
-        },
-        homepage: 'README.md',
-        search: 'auto',
-        auto2top: true
-      }
-    </script>
+    
     <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
     <script src="//unpkg.com/docsify/lib/plugins/external-script.min.js"></script>
     <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
@@ -35,5 +23,25 @@
     <script src="//unpkg.com/prismjs/components/prism-php.min.js"></script>
     <script src="//unpkg.com/prismjs/components/prism-python.min.js"></script>
     <script src="//unpkg.com/prismjs/components/prism-bash.min.js"></script>
+
+    <script>
+      // docsify settings, including search
+      window.$docsify = {
+        repo: 'https://github.com/UrbinCedric/IBMi-Docs',
+        homepage: 'README.md',
+        loadSidebar: true,
+        subMaxLevel: 6,
+        auto2top: true,
+        search: {
+          maxAge: 86400000, // Expiration time, the default one day
+          paths: 'auto',
+          placeholder: 'Type to search',
+          noData: 'No Results!',
+          depth: 6,
+          hideOtherSidebarContent: true, // whether or not to hide other sidebar content
+       }
+      }
+    </script>
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
   </body>
 </html>
