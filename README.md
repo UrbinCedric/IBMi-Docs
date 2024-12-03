@@ -1,6 +1,6 @@
-# Learning IBM i as a Web Developer
+# Learning IBM i
 
-<p>This documentation is for curious developers to start learning how to program on IBM i.</p>
+<p>This documentation is mainly used a personal documentation but can be used by curious developers to start learning how to program on IBM i.</p>
 
 <br>
 
