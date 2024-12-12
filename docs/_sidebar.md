@@ -38,6 +38,9 @@
   - [5. DB2 SQL](core/db2/index.md)
     - [Introduction](core/db2/intro.md)
     - [SQLRPGLE](core/db2/sqlrpgle.md)
+  - [6. Debugging (WIP)](core/debug/index.md)
+    - [Debugging Programs](core/debug/pgm.md)
+    - [Debugging Jobs](core/debug/job.md)
 - Appendix
   - [Help Documenting!](appendix/dev.md)
   - [References](appendix/references.md)
