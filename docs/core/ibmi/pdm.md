@@ -49,7 +49,7 @@ and you should see the newly created SPF.
 
 
 ## PDM Commands
-So far we've used three PDM commands.
+* ```STRPDM``` - Start PDM and choose between libraries, objects & members
 * ```WRKLIBPDM``` - Work with libraries using PDM
 * ```WRKOBJPDM``` - Work with objects using PDM
 * ```WRKMBRPDM``` - Work with members using PDM
