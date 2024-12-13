@@ -44,3 +44,4 @@
 - Appendix
   - [Help Documenting!](appendix/dev.md)
   - [References](appendix/references.md)
+  - [Cheat Sheet (WIP)](appendix/cheat.md)
