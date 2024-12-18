@@ -133,6 +133,7 @@ A cheat sheet of useful commands.
 | Command | Description |
 |---------|-------------|
 | ```WRKSPLF``` or ```SP``` | Work with spool files |
+| ```DLTSPLF FILE(*SELECT)``` | Delete spool files (current user)|
 | ```SNDTCPSPLF``` | Send spool file via TCPIP |
 | ```WRKOUTQ``` | Work with output queues |
 | ```STRPRTWTR``` | Start printer writer |
