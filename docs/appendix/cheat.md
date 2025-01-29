@@ -78,6 +78,7 @@ A cheat sheet of useful commands.
 | ```DLTF``` | Delete file |
 | ```WRKRDBEDIRE``` | Work with Relational Database Directory Entries |
 | ```STRDBMON``` | Start database monitor |
+| ```UPDDTA``` | Update / Insert Records of a file |
 
 ## Back-up and Recovery
 | Command | Description |
