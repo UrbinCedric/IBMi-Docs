@@ -30,6 +30,7 @@ A cheat sheet of useful commands.
 | ```SNDDTAARA``` | Send Data Area |
 | ```DSPDTAARA``` | Display Data Area |
 | ```CHGDTAARA``` | Change Data Area |
+| ```RCLACTGRP(*ELIGIBLE)``` | Reclaim/Clear Activation Groups | 
 
 ## IFS 
 | Command | Description |
